@@ -105,10 +105,8 @@ db.schema.hasTable("all_comments").then(function (exists) {
       t.string("userid");
       t.string("text").nullable();
       t.enum("type", ["text", "gif"]).defaultTo("text");
-      t.string("gif_url").nullable().defaultTo(null);
       t.enum("receiver_type", ["post", "comment", "blog"]);
       t.string("receiver_id");
-      t.string("receiver_userid");
       t.timestamp("created_on").defaultTo(db.fn.now());
     });
   }

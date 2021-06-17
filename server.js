@@ -76,7 +76,7 @@ io.on("connection", (socket) => {
   socket.on("on-privatechat", (data) => onPrivateChat({ db, io, data }));
   socket.on("on-groupchat", (data) => onGroupChat({ db, io, data }));
   //socket.on("create-group",new Gr(db,io).create)
-  socket.on("disconnect", function () {
+  socket.on("disconnect", async () => {
     if (users[socket.id]) {
       console.log(`${users[socket.id].username} disconnected`);
     }
